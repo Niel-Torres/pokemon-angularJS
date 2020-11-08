@@ -42,20 +42,23 @@
           </div>
           <div class="col-md-6">
             <ul class="nav nav-tabs nav-justified">
-              <li class="active"><a href="#">Pokédex</a></li>
-              <li><a href="#">Stats</a></li>
-              <li><a href="#">Evolution</a></li>
+              <li ng-class="{active : tab === 1}"><a ng-click="tab=1">Pokédex</a></li>
+              <li ng-class="{active : tab === 2}"><a ng-click="tab=2">Stats</a></li>
+              <li ng-class="{active : tab === 3}"><a ng-click="tab=3">Evolution</a></li>
             </ul>
-            <div class="tab-content">
+            <div ng-init="tab = 1" class="tab-content">
               <!-- Pokedex-->
-              <div>
+              <div ng-show="tab === 1">
                 <ul class="list-group">
                   <li class="list-group-item">
                     <strong>Type</strong>
                     <!-- <span class="pull-right">{{pkmCtrl.pokemon.type.join(', ')}}</span> -->
-                    <span ng-repeat="type in pkmCtrl.pokemon.type" class="label label-primary type-{{ type | lowercase}}">
+                    <span class="pull-right">
+                      <span class="label type type-{{ type | lowercase}}" ng-repeat="type in pkmCtrl.pokemon.type">
                         {{type}}
+                      </span>
                     </span>
+                    
                   </li>
                   <li class="list-group-item">
                     <strong>Height</strong>
@@ -79,7 +82,7 @@
               </div>
               <!-- /pokedex -->
               <!-- stats -->
-              <div>
+              <div ng-show="tab === 2">
                 <ul class="list-group">
                   <li class="list-group-item">
                     <strong>HP</strong>
@@ -113,7 +116,7 @@
               </div>
               <!-- /stats -->
               <!-- Evolution -->
-              <div>
+              <div ng-show="tab === 3">
                 <div class="text-center" ng-repeat="pokemon in pkmCtrl.pokemon.evolution">
                   <a href="#">
                     <img src="img/pokemons/{{pokemon | lowercase}}.jpg" width="160">
