@@ -2,6 +2,10 @@ body {
   padding-top: 50px;
 }
 
+.form-group {
+  padding: 10px;
+}
+
 .navbar-brand {
   font-weight: 800;
 }
