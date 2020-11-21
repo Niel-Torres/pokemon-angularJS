@@ -58,9 +58,9 @@
       };
 
       this.addComment = function () {
-
         this.comments.push(this.comment);
         this.comment.date = Date.now();
+        this.comment = {};
       };
 
     });
