@@ -165,7 +165,7 @@
                 <footer>
                   Comment by <a ng-if="!comment.anonymous" href="mailto:{{comment.email}}">{{comment.email}}</a> 
                   <em ng-if="comment.anonymous">Anonymous</em>
-                  on <span>Nov 10, 2020, 11:00:00 PM</span> 
+                  on <span>{{comment.date | date : 'medium'}}</span> 
                 </footer>
               </blockquote>
             </div>
