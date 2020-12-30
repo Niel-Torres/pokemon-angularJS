@@ -1,0 +1,137 @@
+Algunos apuntes de angularJS :)
+
+
+*******************************************************************************************
+*******************************************************************************************
+					Filtros
+*******************************************************************************************
+*******************************************************************************************
+
+Filtro: función que recibe una entrada y entrega una salida
+Se ejecuta utilizando el pipe | y luego el nombre del filtro
+
+Ejm: {{ pkmCtrl.pokemon.name | lowercase }}
+
+
+Crear nuestro propio filtro:
+
+app.filter('imageify', function () {
+  return function (input) {
+    var url = "img/pokemons/" + input.toLowerCase() + ".jpg";
+    return url;
+  }
+});
+
+
+
+Si queremos pasar parámetros al filtro:
+(ext sería el parámetro que pasamos al filtro en el html, con || le indicamos que coja uno u otro, es decir que si no se envia ext, siempre coja el .jpg)
+(ojo: se puede pasar multiples parámetros)
+app.filter('imageify', function (input, ext) {
+  return function (input, ext) {
+    var url = "img/pokemons/" + input.toLowerCase() + "." + ext || ".jpg";
+    return url;
+  }
+});
+
+
+En el HTML:
+<img src="{{pokemon | imageify : 'png'}}">
+
+
+*******************************************************************************************
+*******************************************************************************************
+					Directivas
+*******************************************************************************************
+*******************************************************************************************
+
+-------------------------------------------------------------------------------------------
+ng-src
+-------------------------------------------------------------------------------------------
+
+Para imágen
+
+ejm:
+
+<img class="avatar center-block" ng-src="img/pokemons/{{pkmCtrl.pokemon.name | lowercase}}.jpg">
+
+
+-------------------------------------------------------------------------------------------
+ng-repeat
+-------------------------------------------------------------------------------------------
+La directiva ng-repeat permite iterar un array en la vista:
+
+Ejm:
+
+<span class="label type type-{{type | lowercase}}" ng-repeat="type in pkmCtrl.pokemon.type">
+
+-------------------------------------------------------------------------------------------
+ng-hide
+-------------------------------------------------------------------------------------------
+
+La directiva ng-hide sirve para esconder un elemento HTML cuando una variable sea verdadera.
+La directiva o variable $last viene incluida con la directiva ng-repeat, esta indica el último elemento de la lista.
+
+Ejm:
+
+<span ng-hide="$last" class="glyphicon glyphicon-arrow-down"></span>
+
+-------------------------------------------------------------------------------------------
+ng-show
+-------------------------------------------------------------------------------------------
+
+La directiva ng-show sirve para mostrar un elemento HTML cuando una variable sea verdadera.
+
+<div ng-show="tabs.tab === 1">
+
+-------------------------------------------------------------------------------------------
+ng-click
+-------------------------------------------------------------------------------------------
+
+La directiva ng-click permite ejecutar una expresión cuando le de clic a un elemento HTML.
+
+Ejm:
+<a ng-click="tabs.selectTab(1)">
+
+-------------------------------------------------------------------------------------------
+ng-class
+-------------------------------------------------------------------------------------------
+
+La directiva ng-class me va a permitir agregar una clase a un elemento si se cumple una condición.
+
+Ejm:
+
+<li ng-class="{active : tabs.tab === 1}">
+
+
+*******************************************************************************************
+*******************************************************************************************
+					Controlador
+*******************************************************************************************
+*******************************************************************************************
+
+muy buena práctica tener la lógica en en un controlador:
+
+Ejm: Tabs en el controlador :
+
+app.controller('TabsController', function () {
+  this.tab = 1;
+
+  this.selectTab = function (tab) {
+    this.tab = tab
+  };
+});
+
+
+*******************************************************************************************
+*******************************************************************************************
+					apuntes adicionales
+*******************************************************************************************
+*******************************************************************************************
+-------------------------------------------------------------------------------------------
+
+Para unir elementos de un array con una coma (,) con la función join de JavaScript:
+
+{{ pkmCtrl.pokemon.type.join(', ') }}
+
+-------------------------------------------------------------------------------------------

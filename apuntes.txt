@@ -1,0 +1,47 @@
+
+-------------------------------------------------------------------------------------------
+
+Angularjs se puede mezclar con jquery, por ejemplo para añadir animaciones
+
+Pero ojo, cuidado con hacer doble esfuerzo, es decir lo que se haga con jquery quizá ya los puedas hacer con angular
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+Ejecutar "grunt" => Levantará server en el puerto 9000 o 8100 con la web en watch
+
+
+-------------------------------------------------------------------------------------------
+12. Crear controlador comments y mostrar/ocultar funcionalidad
+
+Una de las directivas mas poderas de angular es "ng-model", la cual me va a permitir enlazar
+formularios con el controlador. 
+
+Vamos a definir algunos conceptos:
+1. "binding":
+Enlazar datos de un controlador o una lógica de código de al HTML
+
+2. "two way binding"
+Es una funcionalidad de angular, lo que hace es que nos va a permitir actualizar la vista en el controlador,
+y todo esto sin tener que tener un control de eventos o event listener,
+sino que angularJS lo va a hacer automáticamente. 
+
+el modelo (revisar video)
+
+Vamos a verlo ...
+
+
+
+-------------------------------------------------------------------------------------------
+13.
+
+
+-------------------------------------------------------------------------------------------
+
+17. 
+
+comment.date => timestamp => formato
+
+-------------------------------------------------------------------------------------------
+
+
