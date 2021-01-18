@@ -135,3 +135,10 @@ Para unir elementos de un array con una coma (,) con la función join de JavaScr
 {{ pkmCtrl.pokemon.type.join(', ') }}
 
 -------------------------------------------------------------------------------------------
+
+
+ng-view
+
+ng-view existe gracias a ng-route
+
+(Tenemos que descargar de internet el módulo de ng-route)
