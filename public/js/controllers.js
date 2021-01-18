@@ -1,5 +1,9 @@
 (function() {
     angular.module('pokedex.controllers', [])
+        .controller('PokedexController', ['$scope', '$http', function($scope, $http) {
+            
+        }])
+
         .controller('PokemonController', function () {
             //Objeto pokemon
             this.pokemon = {
