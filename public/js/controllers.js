@@ -10,9 +10,13 @@
                 })
         }])
 
-        .controller('PokemonController', function () {
+        .controller('PokemonController', ['$scope', function ($scope) {
+            
+            //Cambiamos el controlador para que use scope:
+            //this.pokemon = {
+            
             //Objeto pokemon
-            this.pokemon = {
+            $scope.pokemon = {
             id: "001",
             name: "Bulbasaur",
             species: "Seed Pokémon",
@@ -31,7 +35,7 @@
             },
             evolution: ["Bulbasaur", "Ivysaur", "Venusaur"]
             }; 
-        })
+        }])
   
         .controller('TabsController', function (){
             this.tab = 1;
