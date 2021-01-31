@@ -24,7 +24,8 @@
         .when("/pokemon/:id", {
           templateUrl: "views/pokemon.html",
           controller: "PokemonController",
-          controllerAs: "pkmCtrl",
+          //Quitamos el alias, porque ya no lo necesitamos
+          //controllerAs: "pkmCtrl",
         })
         .otherwise({
           redirectTo: '/'

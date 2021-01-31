@@ -124,3 +124,18 @@ body {
   background-color: #ee99ac;
   border: solid 1px #9b6470;
 }
+
+.pokemon {
+  padding: 20px;
+  margin-bottom: 10px;
+  border: solid 1px #D9230F;
+  border-radius: 20px;
+}
+
+.pokemon:hover {
+  border: solid 3px #D9230F;
+}
+
+.pokemon img {
+  width: 300px;
+}
