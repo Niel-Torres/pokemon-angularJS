@@ -13,9 +13,13 @@
       <!--
       Eliminamos el alias "pkmCtrl", porque $scope ya está disponible desde cualquier lado
       Ejm:
+      Esto:
       <span class="pull-right">{{pkmCtrl.pokemon.height}}</span>
-      -->
+      por esto:
       <span class="pull-right">{{pokemon.height}}</span>
+      --Al final aplicamos un nuevo refactor,  lo cambiamos y hacemos uso de directiva "pokemon-type"
+      -->
+      <pokemon-type></pokemon-type>
     </li>
     <li class="list-group-item">
       <strong>Weight</strong>
