@@ -4,7 +4,12 @@
   </div>
 
   <div ng-repeat="pokemon in pokemons">
+    <!--
+    Vamos a cambiar esto, por el uso de las directivas pokemon-name y image
     <h1>{{pokemon.name}} <small>{{pokemon.species}}</small></h1>
     <img ng-src="{{pokemon.name | imageify}}">
+    -->
+    <pokemon-name></pokemon-name>
+    <pokemon-image></pokemon-image>
   </div>
 </div>
