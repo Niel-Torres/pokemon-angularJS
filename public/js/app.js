@@ -12,6 +12,7 @@
     "pokedex.controllers",
     "pokedex.directives",
     "pokedex.filters",
+    "pokedex.services"
   ]);
 
   app.config(["$routeProvider", function ($routeProvider) {

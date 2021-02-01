@@ -1,13 +1,17 @@
 (function() {
 
     angular.module('pokedex.controllers', [])
-        .controller('PokedexController', ['$scope', '$http', function ($scope, $http) {
-            $scope.pokemons = [];
-            
-            $http.get('/pokemons.json')
-                .success(function (data) {
-                    $scope.pokemons = data;
-                })
+        /**
+         * Promises
+         * Ejecutamos el metodo all del servicio pokemonService, este método all nos retorna una promesa.
+         * Si la promesa se resuelve, nos lo devuelve en "then"
+         * Aislar esta llamada http entre el controlador y el servicio nos ayuda a que si el día de mañana,se cambia la llamada por api rest, sólo se cambiaría el servicio.
+         * El CONTROLADOR sólo recibe el listado de pokemon, el cómo lo está obteniendo se realiza desde el SERVICIO
+         */
+        .controller('PokedexController', ['$scope', 'pokemonService', function ($scope, pokemonService) {
+           pokemonService.all().then(function (data) {
+               $scope.pokemons = data;
+           });
         }])
 
         .controller('PokemonController', ['$scope', function ($scope) {
