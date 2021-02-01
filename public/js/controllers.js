@@ -14,17 +14,22 @@
            });
         }])
 
-        .controller('PokemonController', ['$scope', 'pokemonService', function ($scope, pokemonService) {
+        /**
+         * El servicio $routeParams propio de angular: es el que va a gestionar el que hemos definido en routes dentro de app.js
+         */
+        .controller('PokemonController', ['$scope', '$routeParams', 'pokemonService', function ($scope, $routeParams, pokemonService) {
             
             //Cambiamos el controlador para que use scope en vez de this:
             //this.pokemon = {
+            var name = $routeParams.name;
 
             //llamar un pokemon por el nombre
             $scope.pokemon = {};
-            pokemonService.byName('mew')
+
+            pokemonService.byName(name)
                 .then(function (data) {
                     $scope.pokemon  = data;
-                })
+                });
 
         }])
   
