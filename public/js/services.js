@@ -52,22 +52,21 @@
           deferred.resolve(results);
         });
         // Retornamos la promesa
-        return deferred.promise;
+        return deferred.promise; 
       }
 
       function saveComment(pokemon, comment) {
-
         var comments = getComments(pokemon);
 
         comments.push(comment);
-
-        // convertir un objeto a una cadena de texto => JSON.stringify
+        //Convertir un objeto a una cadena de texto => JSON.stringify
         localStorage.setItem(pokemon, JSON.stringify(comments));
 
       }
 
       function getComments(pokemon){
         var comments = localStorage.getItem(pokemon);
+        
         if(!comments){
           comments = [];
         }
