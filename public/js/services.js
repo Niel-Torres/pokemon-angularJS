@@ -1,7 +1,8 @@
 (function() {
   angular.module('pokedex.services', [])
-    .factory('pokemonService', ['$http', '$q', '$filter', function($http, $q, $filter) {
-      
+    .factory('pokemonService', ['$http', '$q', '$filter', '$window', function($http, $q, $filter, $window) {
+      var localStorage = $window.localStorage;
+
       var normalize = $filter('normalize');
 
       function all(){
@@ -54,11 +55,36 @@
         return deferred.promise;
       }
 
+      function saveComment(pokemon, comment) {
+
+        var comments = getComments(pokemon);
+
+        comments.push(comment);
+
+        // convertir un objeto a una cadena de texto => JSON.stringify
+        localStorage.setItem(pokemon, JSON.stringify(comments));
+
+      }
+
+      function getComments(pokemon){
+        var comments = localStorage.getItem(pokemon);
+        if(!comments){
+          comments = [];
+        }
+        else {
+          comments = JSON.parse(comments);
+        }
+
+        return comments;
+      }
+
       //Return a nuestro objeto factory
       return {
         all: all,
         byName: byName,
-        byType: byType
+        byType: byType,
+        saveComment: saveComment,
+        getComments: getComments
       };
       
     }])
