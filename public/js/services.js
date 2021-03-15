@@ -7,7 +7,7 @@
       function all(){
         var deferred = $q.defer();
         
-        $http.get('/pokemons.json', { cache: true })
+        $http.get('./pokemons.json', { cache: true })
           .success(function (data) {
             deferred.resolve(data); // Al objeto diferido le estamos diciendo que resuelva la promesa y le pasamos el "data" que acabamos de obtener de la peticón http
           });
