@@ -1,4 +1,4 @@
-(function() {
+(function (_) {
 
     angular.module('pokedex.controllers', [])
         /**
@@ -18,11 +18,19 @@
                 
                 pokemonService.byType(type).then(function (data) {
                     $scope.pokemons = data;
+                    $scope.groupped = partition(data, 4);
                 });
             } else {
                 pokemonService.all().then(function (data) {
                     $scope.pokemons = data;
+                    $scope.groupped = partition(data, 4);
                 });
+            }
+
+            function partition(data, n) {
+                return _.chain(data).groupBy(function (element, index) {
+                    return Math.floor(index / n);
+                }).toArray().value();
             }
 
         }])
@@ -55,4 +63,4 @@
             
         });
 
-})();
+})(_);

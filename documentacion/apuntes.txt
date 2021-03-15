@@ -142,3 +142,9 @@ ng-view
 ng-view existe gracias a ng-route
 
 (Tenemos que descargar de internet el módulo de ng-route)
+
+
+---
+Factory: Retorna un objeto
+Services: Retorna una instancia de un objeto(new)
+Provider: Permite tener un paso previo de configuración para el servicio y luego retorna la instancia de un objeto

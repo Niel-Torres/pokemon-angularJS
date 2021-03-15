@@ -4,18 +4,23 @@
     <h2 ng-if="type"><span class="label type-{{type | lowercase}}">{{type}}</span></h2>
   </div>
 
-  <div class="pokemon" ng-repeat="pokemon in pokemons">
-    <!--
-    Vamos a cambiar esto, por el uso de las directivas pokemon-name y image
-    <h1>{{pokemon.name}} <small>{{pokemon.species}}</small></h1>
-    <img ng-src="{{pokemon.name | imageify}}">
-    -->
-    <a href="/#pokemon/{{pokemon.name | normalize}}">
-      <pokemon-name></pokemon-name>
-      <pokemon-image></pokemon-image>
-      <div class="text-center">
-        <pokemon-type></pokemon-type>
+  <div class="row" ng-repeat="group in groupped">
+    <div class="col-lg-3" ng-repeat="pokemon in group">
+      <div class="pokemon panel panel-primary">
+        <div class="panel-heading">
+          <pokemon-name></pokemon-name>
+        </div>
+        <div class="panel-body">
+          <a href="/#pokemon/{{pokemon.name | normalize}}">
+            <pokemon-image></pokemon-image>
+          </a>  
+        </div>
+        <div class="panel-footer">
+          <div class="text-center">
+            <pokemon-type></pokemon-type>
+          </div>
+        </div>
       </div>
-    </a>
+    </div>
   </div>
 </div>
