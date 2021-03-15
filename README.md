@@ -1,2 +1,3 @@
-# pokedex-with-angularJS
-Una Pokédex simple desarrollada con Angular.js
+# pokemon con angularJS
+
+Proyecto que simula una Pokédex desarrollado con tecnología AngularJS.
