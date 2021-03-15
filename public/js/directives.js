@@ -41,14 +41,23 @@
                 templateUrl: 'partials/pokemon-type.html'
             }
         })
-    
+        
+        /**
+         * Inyectamos el servicio de pokemonService a la directiva pokemonComments
+         * Al inyectarle el servicio de pokemon, vamos a poder tener acceso a guardar comentarios y obtener comentarios 
+         **/
         .directive('pokemonComments', ['pokemonService', function (pokemonService) {
             return {
                 restrict: 'E',
                 templateUrl: 'partials/pokemon-comments.html',
+                //Definimos el scope de la directiva, ojo no es el mismo scope del controlador
+                //Solo nos estamos quedando con el nombre (name)
+                //@ = Campo de texto
                 scope: {
                     name: '@name'
                 },
+                //Esta función de enlace(link), me va a permitir enlazar las propiedades del scope con mi directiva
+                //La idea de este es observar si cambiamos a otro pokemon y obtener los comentarios de ese pokemon
                 link: function (scope, element, attributes) {
                     attributes.$observe('name', function(value) {
                         if(value){
