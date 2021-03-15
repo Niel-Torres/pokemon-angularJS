@@ -32,14 +32,35 @@
           }
           
         });
-
+        //return promsesa;
         return deferred.promise;
       }
 
+      function byType(type) {
+        type = normalize(type);
+        // Añadimos el defereido a una variable "deferred"
+        var deferred = $q.defer();
+        
+        all().then(function(data) {
+          var results = data.filter(function (pokemon) {
+            return pokemon.type.some(function (t) {
+              return normalize(t) === type;
+            });
+          });
+          // Resolvemos la promesa, cuando ya tengamos todos nuestros resultados
+          deferred.resolve(results);
+        });
+        // Retornamos la promesa
+        return deferred.promise;
+      }
+
+      //Return a nuestro objeto factory
       return {
         all: all,
-        byName: byName
-      }
+        byName: byName,
+        byType: byType
+      };
+      
     }])
 
 })();

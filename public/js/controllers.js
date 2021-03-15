@@ -8,10 +8,23 @@
          * Aislar esta llamada http entre el controlador y el servicio nos ayuda a que si el día de mañana,se cambia la llamada por api rest, sólo se cambiaría el servicio.
          * El CONTROLADOR sólo recibe el listado de pokemon, el cómo lo está obteniendo se realiza desde el SERVICIO
          */
-        .controller('PokedexController', ['$scope', 'pokemonService', function ($scope, pokemonService) {
-           pokemonService.all().then(function (data) {
-               $scope.pokemons = data;
-           });
+        .controller('PokedexController', ['$scope', '$routeParams', 'pokemonService', function ($scope, $routeParams, pokemonService) {
+            var type = $routeParams.type;
+
+            // Si en la url nos indican el tipo devolvemos pokemons por tipo, sino devolvemos todos los pokemons
+            // Para esto hemos inyectado routeParams y configura nuestra rutas
+            if (type) {
+                $scope.type = type;
+                
+                pokemonService.byType(type).then(function (data) {
+                    $scope.pokemons = data;
+                });
+            } else {
+                pokemonService.all().then(function (data) {
+                    $scope.pokemons = data;
+                });
+            }
+
         }])
 
         /**
@@ -23,9 +36,9 @@
             //this.pokemon = {
             var name = $routeParams.name;
 
-            //llamar un pokemon por el nombre
             $scope.pokemon = {};
 
+            //llamar un pokemon por el nombre
             pokemonService.byName(name)
                 .then(function (data) {
                     $scope.pokemon  = data;
