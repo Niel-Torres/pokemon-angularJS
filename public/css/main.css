@@ -165,3 +165,21 @@ body {
   position: relative;
   height: 250px;
 }
+
+.github-follow{
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+  font-size: 0;
+  line-height: 0;
+  white-space: nowrap;
+  float: right;
+  padding: 5px;
+  display: contents;
+}
+
+.github-follow .btn {
+  color: #24292e;
+  background-color: #eff3f6;
+  border-color: #c5c9cc;
+  margin-left: 5px;
+}
