@@ -80,6 +80,7 @@
         }
         else {
           comments = JSON.parse(comments);
+          comments.reverse();
         }
 
         return comments;
