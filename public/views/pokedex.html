@@ -1,9 +1,9 @@
 <div>
   <div class="page-header">
-    <h1>Pokedex <small class="pull-right">Showing <span class="badge">{{pokemons.length}}</span> Pokémons</small></h1>
+    <h1>Pokédex <small class="pull-right">Showing <span class="badge">{{pokemons.length}}</span> Pokémons</small></h1>
+    <pokemon-search></pokemon-search>
     <h2 ng-if="type"><span class="label type-{{type | lowercase}}">{{type}}</span></h2>
   </div>
-
   <div class="row" ng-repeat="group in groupped">
     <div class="col-lg-3" ng-repeat="pokemon in group">
       <div class="pokemon panel panel-primary">

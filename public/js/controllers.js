@@ -10,6 +10,7 @@
          */
         .controller('PokedexController', ['$scope', '$routeParams', 'pokemonService', function ($scope, $routeParams, pokemonService) {
             var type = $routeParams.type;
+            $scope.minlength=3;
 
             // Si en la url nos indican el tipo devolvemos pokemons por tipo, sino devolvemos todos los pokemons
             // Para esto hemos inyectado routeParams y configura nuestra rutas
@@ -32,6 +33,20 @@
                     return Math.floor(index / n);
                 }).toArray().value();
             }
+
+            $scope.buscarPokemon = function (){
+                var searchPokemon = $scope.searchPokemon;
+                $scope.pokemonSearch = false;
+                $scope.type=false;
+                
+                pokemonService.searchPokemon(searchPokemon).then(function (data) {  
+                    if(data<=0){
+                        $scope.pokemonSearch = true;
+                    }  
+                    $scope.pokemons = data;
+                    $scope.groupped = partition(data, 4);
+                });   
+            };
 
         }])
 

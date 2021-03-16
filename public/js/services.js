@@ -63,6 +63,24 @@
         return deferred.promise; 
       }
 
+      function searchPokemon(searchText) {
+        var deferred = $q.defer();
+
+        all().then(function(data) {
+          var results = data.filter(function (pokemon) {
+            searchText = $filter('normalize')(searchText);
+            
+            if($filter('normalize')(pokemon.name).includes(searchText)){
+              return pokemon.name;
+            }
+          });
+
+          deferred.resolve(results);
+        });
+
+        return deferred.promise;
+      }
+
       function saveComment(pokemon, comment) {
         var comments = getComments(pokemon);
 
@@ -92,7 +110,8 @@
         byName: byName,
         byType: byType,
         saveComment: saveComment,
-        getComments: getComments
+        getComments: getComments,
+        searchPokemon: searchPokemon
       };
       
     }])

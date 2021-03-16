@@ -1,0 +1,7 @@
+<div>
+  <input type="text" ng-model="searchPokemon" class="form-control" placeholder="search pokemon" ng-minlength="minlength">
+  <button ng-if="searchPokemon" ng-click="buscarPokemon()">Buscar</button>
+  <div ng-if="pokemonSearch">
+    <span>Pokemon no encontrado</span>
+  </div>
+</div>
