@@ -1,7 +1,3 @@
-# pokemon-con-angularJS
-
-Proyecto que simula una Pokédex desarrollado con AngularJS.
-
 Desde el tag 43 o desde branch develop, debéis de realizar las siguientes mejoras y/o solución de errores:
 
 1. Mostrar un mensaje de error o lo que se te ocurra si el pokémon no existe.
