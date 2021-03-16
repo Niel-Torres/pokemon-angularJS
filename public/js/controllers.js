@@ -47,10 +47,19 @@
             $scope.pokemon = {};
 
             //llamar un pokemon por el nombre
+            //Resultado de una promesa:
+            //OK: function (data)
+            //KO: function (error). Cuando la promesa no puede obtener la información.
             pokemonService.byName(name)
-                .then(function (data) {
-                    $scope.pokemon  = data;
-                });
+                .then(
+                    function (data) {
+                        
+                        $scope.pokemon  = data;
+                    }, 
+                    function (error) {
+                        
+                    }    
+                );
 
         }])
   

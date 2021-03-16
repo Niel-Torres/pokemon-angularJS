@@ -41,6 +41,13 @@
                 templateUrl: 'partials/pokemon-type.html'
             }
         })
+
+        .directive('pokemon404', function () {
+            return{
+                restrict: 'E',
+                templateUrl: './partials/pokemon-404.html'
+            }
+        })
         
         /**
          * Inyectamos el servicio de pokemonService a la directiva pokemonComments

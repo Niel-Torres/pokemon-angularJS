@@ -1,6 +1,6 @@
 <!-- Indicamos que este bloque div está asociado a nuestro controlador PokemonController-->
 <!-- pokemon -->
-<div>
+<div ng-if="pokemon.name">
   <div class="page-header">
     <pokemon-name></pokemon-name>
   </div>
@@ -39,3 +39,6 @@
   <!-- /Comments-->
 </div>
 <!-- /pokemon -->
+<div class="pokemonNotFound" ng-if="!pokemon.name">
+  <pokemon-404></pokemon-404>
+</div>
