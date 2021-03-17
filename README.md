@@ -31,7 +31,7 @@ $ grunt
   
 
 ### Legal
-Pokémon images, names and information pertencen a (c) 1995-2014 Nintendo/Game freak.
+Pokémon images, names and information (c) 1995-2014 Nintendo/Game freak.
 
 --
 
